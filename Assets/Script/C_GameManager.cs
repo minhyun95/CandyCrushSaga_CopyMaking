@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using Values;
 using UnityEngine.U2D;
 using UnityEngine.Experimental.U2D;
-
-public class C_GameManager : MonoBehaviour
+using singleton;
+public class C_GameManager : Singleton<C_GameManager>
 {
     public SpriteAtlas m_atlas;
 
@@ -31,6 +31,8 @@ public class C_GameManager : MonoBehaviour
         m_atlas = Resources.Load<SpriteAtlas>("FruitAtlas");
         Board_Setting();
 
+
+        // 테스트용 코드들
         //Invoke("Match3_Algorithm", 2);
         //Invoke("Fill_Empty_Space", 4);
         //Invoke("Match3_Algorithm", 6);
@@ -70,28 +72,31 @@ public class C_GameManager : MonoBehaviour
             {
                 if (j == 0)
                 {
-                    c_board.b_BoardStates[i, j] = false;
                     Board_Pool_Transform.GetChild(i * 10 + j).gameObject.GetComponent<Image>().color = somes.BoardOffColor;
+                    c_board.V[i].H[j].block.BoardState = false;
                 }
                 else
-                    c_board.b_BoardStates[i, j] = true;
+                {
+                    c_board.V[i].H[j].block.BoardState = true;
+                }
             }
         }
 
         // 테스트용 보드 false
-        c_board.b_BoardStates[4, 4] = false;
-        c_board.b_BoardStates[1, 5] = false;
-        c_board.b_BoardStates[7, 2] = false;
-
+        c_board.V[4].H[4].block.BoardState = true;
+        c_board.V[1].H[5].block.BoardState = true;
+        c_board.V[7].H[2].block.BoardState = true;
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                if(c_board.b_BoardStates[i,j] == false)
+                if (c_board.V[i].H[j].block.BoardState == false)
+                {
                     Board_Pool_Transform.GetChild(i * 10 + j).gameObject.GetComponent<Image>().color = somes.BoardOffColor;
-
+                }
             }
         }
+        // 테스트용 보드 색변경
 
 
         // Fruit Pool 생성
@@ -111,7 +116,7 @@ public class C_GameManager : MonoBehaviour
                 c_board.V[i].H[j].block.Block_Transform = Board_Pool_Transform.GetChild(i * 10 + j).gameObject.GetComponent<RectTransform>();
                 c_board.V[i].H[j].block.xy.X = i;
                 c_board.V[i].H[j].block.xy.Y = j;
-                if (c_board.b_BoardStates[i,j])
+                if (c_board.V[i].H[j].block.BoardState)
                 {
                     GameObject block = SleepBlocks.Dequeue();
                     block.SetActive(true);
@@ -124,6 +129,11 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
+
+    // 캔디오브젝트의 이미지를 Fruit_Type를 변경시켜주고
+    // Fruit_Type에 맞게 이미지를 바꾼다.
+    // 2번째 인자인 getnum값이 들어올 경우 랜덤한 값이 아니라
+    // 들어온 값으로 Fruit_Type이 결정된다.
     void Candy_Init(GameObject obj, int getnum = -1)
     {
         int fruitRand = 0;
@@ -188,10 +198,19 @@ public class C_GameManager : MonoBehaviour
         obj.GetComponent<C_ImBlock>().Fruit_Type = fruitRand;
     }
 
-
+    /*
+        캔디가 파괴할때 실행되는 함수
+        캔디크러쉬사가에서는 
+        4개가 가로, 세로 직선으로있을때
+        가로일때 - 세로줄 파괴 캔디 1개 생성
+        세로일때 - 가로줄 파괴 캔디 1개 생성
+        5개가 직선으로 있을때
+        ColorBoom이 생성되고 ColorBoom을 움직이면
+        ColorBoom과 바꾼 Fruit을 보드에서 모두 파괴한다. (가로 세로일 경우 효과 발동됨)
+     */
     void Breaking(int i, int j)
     {
-        if(c_board.b_BoardStates[i,j])
+        if(c_board.V[i].H[j].block.BoardState)
         {
             if (c_board.V[i].H[j].block.HereBlockObject != null)
             {
@@ -220,6 +239,13 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
+
+    /*
+        채우기 함수
+        오른쪽 아래에서부터 9x9x9회 반복하며 실행
+        9x9가 아닌 이유는 한번에 1칸씩 내려가기 때문.
+        나중에 최적화 필요.
+    */
     [ContextMenu("Fill")]
     public void Fill_Empty_Space()
     {
@@ -235,13 +261,13 @@ public class C_GameManager : MonoBehaviour
                 {
                     XY xy = new XY();
                     // 해당 위치가 활성화 Block
-                    if (c_board.b_BoardStates[i, j])
+                    if (c_board.V[i].H[j].block.BoardState)
                     {
                         // 현재 칸이 null이 아닐때
                         if (c_board.V[i].H[j].block.HereBlockObject != null)
                         {
                             // 현재 칸의 아래 칸이 비었고, 보드가 true일때
-                            if (c_board.V[i].H[j + 1].block.HereBlockObject == null && c_board.b_BoardStates[i, j + 1])
+                            if (c_board.V[i].H[j + 1].block.HereBlockObject == null && c_board.V[i].H[j + 1].block.BoardState)
                             {
                                 c_board.V[i].H[j + 1].block.HereBlockObject = c_board.V[i].H[j].block.HereBlockObject;
                                 c_board.V[i].H[j].block.HereBlockObject = null;
@@ -255,7 +281,7 @@ public class C_GameManager : MonoBehaviour
                             if (i >= 1)
                             {
                                 // 현재 칸의 왼쪽 하단 칸이 비었고, 보드가 true일때, 현재칸의 왼쪽 칸이 false일때
-                                if (c_board.b_BoardStates[i - 1, j + 1] && c_board.V[i - 1].H[j + 1].block.HereBlockObject == null && c_board.b_BoardStates[i - 1, j] == false)
+                                if (c_board.V[i - 1].H[j + 1].block.BoardState && c_board.V[i - 1].H[j + 1].block.HereBlockObject == null && c_board.V[i - 1].H[j].block.BoardState == false)
                                 {
                                     c_board.V[i - 1].H[j + 1].block.HereBlockObject = c_board.V[i].H[j].block.HereBlockObject;
                                     c_board.V[i].H[j].block.HereBlockObject = null;
@@ -269,7 +295,7 @@ public class C_GameManager : MonoBehaviour
                             if (i == 0)
                             {
                                 // 현재 칸의 오른쪽 하단 칸이 비었고, 보드가 true일때, 현재칸의 오른쪽 칸이 false일때
-                                if (c_board.b_BoardStates[i + 1, j + 1] && c_board.V[i + 1].H[j + 1].block.HereBlockObject == null && c_board.b_BoardStates[i + 1, j] == false)
+                                if (c_board.V[i + 1].H[j + 1].block.BoardState && c_board.V[i + 1].H[j + 1].block.HereBlockObject == null && c_board.V[i + 1].H[j].block.BoardState == false)
                                 {
                                     c_board.V[i + 1].H[j + 1].block.HereBlockObject = c_board.V[i].H[j].block.HereBlockObject;
                                     c_board.V[i].H[j].block.HereBlockObject = null;
@@ -284,7 +310,7 @@ public class C_GameManager : MonoBehaviour
                     // 최상단일때
                     else if (j == 0)
                     {
-                        if (c_board.b_BoardStates[i, j + 1] && c_board.V[i].H[j + 1].block.HereBlockObject == null)
+                        if (c_board.V[i].H[j + 1].block.BoardState && c_board.V[i].H[j + 1].block.HereBlockObject == null)
                         {
                             MakeCount[i] += 1;
                             GameObject obj = SleepBlocks.Dequeue();
@@ -303,10 +329,19 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
+    /*
+        3Match를 실행하는 알고리즘
+        isMatched[9, 10] 과 BoomType[9, 10] 2중 배열이 2개있는데
+        Breaking을 2번 실행하는걸 방지하기 위해 
+        3Match가 된다면 해당 isMatched 좌표에 Stack을 넣어준다
+        9x10을 돌려 isMatched가 0이상인 좌표에 있는 Fruit를 Breaking한다.
+    */
+    int[,] isMatched = new int[9, 10];
+    int[,] BoomType = new int[9, 10];
     [ContextMenu("매치")]
     public void Match3_Algorithm()
     {
-        // 찾기
+        // isMatched 이중배열 0으로 초기화
         for (int i = 0; i < 9; i++)
         {
             for (int j = 1; j < 10; j++)
@@ -319,7 +354,7 @@ public class C_GameManager : MonoBehaviour
             for (int j = 9; j >= 1; j--)
             {
                 // 활성화된 보드만.
-                if (c_board.b_BoardStates[i, j] && c_board.V[i].H[j].block.HereBlockObject != null)
+                if (c_board.V[i].H[j].block.BoardState && c_board.V[i].H[j].block.HereBlockObject != null)
                 {
                     int Left = ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
                     int Top = ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
@@ -327,6 +362,9 @@ public class C_GameManager : MonoBehaviour
             }
         }
 
+        // isMatched 이중배열을 검사해서
+        // 0 이상이면 파괴한다.
+        // 파괴하면서 세로,가로줄 파괴하는 특수 폭탄인지 검사.
         for (int i = 0; i < 9; i++)
         {
             for (int j = 1; j < 10; j++)
@@ -361,14 +399,16 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
-    int[,] isMatched = new int[9, 10];
-    int[,] BoomType = new int[9, 10];
+    /*
+        재귀함수를 돌려 3개 이상 이어져있으면 isMatched에 Stack을 넣어준다.
+    
+    */
     int ThreeMatch_DFS(int x, int y, int stack, int dir, int startFruit)
     {
         int num = 0;
         // 범위를 벗어나면 return 
         // 보드가 닫혀있다면 return
-        if (y < 1 || x < 0 || c_board.b_BoardStates[x, y] == false)
+        if (y < 1 || x < 0 || c_board.V[x].H[y].block.BoardState == false)
             return 0;
         else if (c_board.V[x].H[y].block.HereBlockObject == null)
             return 0;
@@ -418,6 +458,8 @@ public class C_GameManager : MonoBehaviour
         return 0;
     }
 
+
+    // 가로줄 파괴 폭탄
     void Vertical_Explode(int xline, int yline)
     {
         for (int x = 0; x < 9; x++)
@@ -427,6 +469,7 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
+    // 세로줄 파괴 폭탄
     void Horizontal_Explode(int xline, int yline)
     {
         for (int y = 1; y < 10; y++)
@@ -436,6 +479,7 @@ public class C_GameManager : MonoBehaviour
         }
     }
 
+    // 스왑기능
     public void Swap(int xLine, int yLine, int s_xLine, int s_yLine)
     {
         GameObject tempobj;
@@ -455,7 +499,7 @@ public class C_GameManager : MonoBehaviour
             for (int j = 9; j >= 1; j--)
             {
                 // 활성화된 보드만.
-                if (c_board.b_BoardStates[i, j] && c_board.V[i].H[j].block.HereBlockObject != null)
+                if (c_board.V[i].H[j].block.BoardState && c_board.V[i].H[j].block.HereBlockObject != null)
                 {
                     sum += ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
                     sum += ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
@@ -487,11 +531,17 @@ public class C_GameManager : MonoBehaviour
 
 }
 
+/*
+    Unity 인스펙터 창에서 2중배열을 볼 수 없으므로
+    Ver(가로) 9개, Hor(세로) 10개 가지고있는 Class 배열을 만들고
+    Hor Class 내부에 Block Class를 넣었다.
+    9x10의 Block이 생긴셈.
+*/
 [System.Serializable]
 public class Board
 {
     public Ver[] V = new Ver[9];
-    public bool[,] b_BoardStates = new bool[9, 10];
+    //public bool[,] b_BoardStates = new bool[9, 10];
 }
 
 [System.Serializable]
@@ -506,14 +556,16 @@ public class Hor
     public Block block = new Block();
 }
 
+
+// 블록이 가진 여러 함수. 추후에 주석 수정 필요.
 [System.Serializable]
 public class Block
 {
-    // 블록이 없는 부분 int.MaxValue
     public GameObject HereBlockObject;
     public C_ImBlock Here_ImBlock;
     public int BlockType = -1;
     public XY xy = new XY();
     public Image BlockSprite;
     public RectTransform Block_Transform;
+    public bool BoardState = false;
 }

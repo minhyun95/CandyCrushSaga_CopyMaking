@@ -17,7 +17,7 @@ namespace Values
         public int iBrokePoint = 30;
 
         // UI 색 
-        public Color BoardOffColor = Color.black;
+        public Color BoardOffColor = Color.black;  // 비활성화된 보드판 sprite color
         public XY GetXY(int x, int y)
         {
             XY xy = new XY();
@@ -31,6 +31,8 @@ namespace Values
             PointText.text = "점수 : " + iPoint + "점";
         }
     }
+
+    // Fruit가 가지는 값
     enum e_Block_Type
     {
         // N : Normal
@@ -54,6 +56,7 @@ namespace Values
         H_Green,
     }
 
+    // 가로,세로 파괴일때 0,1로 구분해준다.
     enum e_Boom_Number_Type
     {
         VerticalBoom,

@@ -5,7 +5,6 @@ using Values;
 public class C_ImBlock : MonoBehaviour
 {
     public int Fruit_Type;
-    public C_GameManager gm;
     public int X, Y;
     public bool VerticalBoom;
     public bool HorizontalBoom;
@@ -16,7 +15,6 @@ public class C_ImBlock : MonoBehaviour
 
     private void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("Game_Manager").GetComponent<C_GameManager>();
     }
     public void Check_Now_Position(int _x, int _y)
     {
@@ -52,12 +50,12 @@ public class C_ImBlock : MonoBehaviour
         for (int i = 0; i < 16; i++)
         {
             yield return new WaitForSeconds(0.1f / 16f);
-            transform.position = Vector3.Lerp(startPos, gm.c_board.V[x].H[y].block.Block_Transform.position, i / 16f);
+            transform.position = Vector3.Lerp(startPos, C_GameManager.Instance.c_board.V[x].H[y].block.Block_Transform.position, i / 16f);
         }
         Check_Now_Position(x, y);
 
         // 목적지로 현재위치 고정
-        transform.position = gm.c_board.V[x].H[y].block.Block_Transform.position;
+        transform.position = C_GameManager.Instance.c_board.V[x].H[y].block.Block_Transform.position;
 
         // Queue가 비어있으면 종료.
         if (Q_XY.Count != 0)

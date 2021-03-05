@@ -18,6 +18,12 @@ namespace Values
 
         // UI 색 
         public Color BoardOffColor = Color.black;  // 비활성화된 보드판 sprite color
+
+
+
+
+
+
         public XY GetXY(int x, int y)
         {
             XY xy = new XY();

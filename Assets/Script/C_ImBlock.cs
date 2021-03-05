@@ -46,6 +46,7 @@ public class C_ImBlock : MonoBehaviour
         Vector3 startPos = transform.position;
         yield return new WaitForSeconds(DelayTime);
 
+        C_GameManager.Instance.ChangeLogicTimer(0.1f);
         // 0.1초간 목적지로 이동
         for (int i = 0; i < 16; i++)
         {

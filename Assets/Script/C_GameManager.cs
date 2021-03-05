@@ -17,6 +17,15 @@ public class C_GameManager : Singleton<C_GameManager>
     // 파괴될때 SleepBlocks에 넣고 필요할때 새로 꺼냄.
     public Queue<GameObject> SleepBlocks = new Queue<GameObject>();
 
+    // 0 : 3Match , 1 : Fill , 2 : Player Swap
+    public int Game_Logic_State = 0;
+    public bool Next_Logic_Ready = false;
+
+    // Fill_Empty_Space()를 실행할때 FillTimer를 0.1f
+    // FillTimer가 0이하라면 3Match 실행 (1회) 
+    // 3Match가 된다면 : Fill재실행
+    // 3Match가 안된다면 : 유저의 Swap 기다림
+    public float fLogic_Timer = -1;
 
     // 보드
     [Header("보드")]
@@ -25,41 +34,75 @@ public class C_GameManager : Singleton<C_GameManager>
 
     // Some Value
     C_Value somes;
+
+
     void Start()
     {
         somes = GameObject.FindGameObjectWithTag("Header").GetComponent<C_Value>();
         m_atlas = Resources.Load<SpriteAtlas>("FruitAtlas");
         Board_Setting();
 
+        Next_Logic_Ready = true;
+        Game_Logic_State = 0;
+        StartCoroutine("Game_Routine");
+    }
 
-        // 테스트용 코드들
-        //Invoke("Match3_Algorithm", 2);
-        //Invoke("Fill_Empty_Space", 4);
-        //Invoke("Match3_Algorithm", 6);
-        //Invoke("Fill_Empty_Space", 8);
-        //Invoke("Match3_Algorithm", 10);
-        //Invoke("Fill_Empty_Space", 12);
-        //Invoke("Match3_Algorithm", 14);
-        //Invoke("Fill_Empty_Space", 16);
-        //Breaking(5, 5);
-        //Breaking(5, 6);
-        //Breaking(5, 7);
+    IEnumerator Game_Routine()
+    {
+        Next_Logic_Ready = true;
+        // 무한 루프 게임플레이
+        // 로직 변수
+        // 0 : 3Match , 1 : Fill , 2 : Player Swap
+        yield return new WaitUntil(() => fLogic_Timer < 0);
+        if (Next_Logic_Ready)
+        {
+            if (Game_Logic_State == 0)
+            {
+                Debug.Log("로직0 매치");
+                // 3Match 실행
+                int MatchedNum = Match3_Algorithm();
+                if(MatchedNum > 0)
+                {
+                    // Fill 실행
+                    Game_Logic_State = 1;
+                }
+                else
+                {
+                    // 스왑으로
+                    Game_Logic_State = 2;
+                }
+                Next_Logic_Ready = false;
+            }
+            else if (Game_Logic_State == 1)
+            {
+                Debug.Log("로직1 필");
+                // Fil_Empty_Space() 실행
+                Fill_Empty_Space();
+                Next_Logic_Ready = false;
+                Game_Logic_State = 0;
+            }
+            else if (Game_Logic_State == 2)
+            {
+                Debug.Log("로직2 스왑");
+                // 스왑 가능
+            }
+        }
 
-        //Breaking(2, 6);
-        //Breaking(2, 7);
-        //Breaking(2, 8);
-        //Breaking(2, 9);
-
-        //Breaking(1, 4);
-        //Breaking(1, 7);
-        //Breaking(1, 8);
-        //Breaking(1, 9);
-        //Fill_Empty_Space();
-
+        // 다음 로직이 true가 된다면 새로 실행
+        Debug.Log("기다림");
+        yield return new WaitUntil(() => Next_Logic_Ready == false);
+        Debug.Log("다음로직 실행");
+        StartCoroutine("Game_Routine");
     }
 
     void Update()
     {
+        if(fLogic_Timer >= 0)
+            fLogic_Timer -= Time.deltaTime * Time.timeScale;
+        else
+        {
+
+        }
     }
 
     void Board_Setting()
@@ -339,7 +382,7 @@ public class C_GameManager : Singleton<C_GameManager>
     int[,] isMatched = new int[9, 10];
     int[,] BoomType = new int[9, 10];
     [ContextMenu("매치")]
-    public void Match3_Algorithm()
+    public int Match3_Algorithm()
     {
         // isMatched 이중배열 0으로 초기화
         for (int i = 0; i < 9; i++)
@@ -349,6 +392,8 @@ public class C_GameManager : Singleton<C_GameManager>
                 isMatched[i, j] = 0;
             }
         }
+        int Left = 0;
+        int Top = 0;
         for (int i = 8; i >= 0; i--)
         {
             for (int j = 9; j >= 1; j--)
@@ -356,8 +401,8 @@ public class C_GameManager : Singleton<C_GameManager>
                 // 활성화된 보드만.
                 if (c_board.V[i].H[j].block.BoardState && c_board.V[i].H[j].block.HereBlockObject != null)
                 {
-                    int Left = ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
-                    int Top = ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
+                    Left += ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
+                    Top += ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
                 }
             }
         }
@@ -397,6 +442,7 @@ public class C_GameManager : Singleton<C_GameManager>
                 }
             }
         }
+        return Left + Top;
     }
 
     /*
@@ -482,53 +528,69 @@ public class C_GameManager : Singleton<C_GameManager>
     // 스왑기능
     public void Swap(int xLine, int yLine, int s_xLine, int s_yLine)
     {
-        GameObject tempobj;
-        tempobj = c_board.V[xLine].H[yLine].block.HereBlockObject;
-        c_board.V[xLine].H[yLine].block.HereBlockObject = c_board.V[s_xLine].H[s_yLine].block.HereBlockObject;
-        c_board.V[s_xLine].H[s_yLine].block.HereBlockObject = tempobj;
-
-        XY xy = new XY();
-        XY s_xy = new XY();
-        xy.X = xLine;
-        xy.Y = yLine;
-        s_xy.X = s_xLine;
-        s_xy.Y = s_yLine;
-        int sum = 0;
-        for (int i = 8; i >= 0; i--)
+        // 게임 로직이 2일때
+        if(Game_Logic_State == 2)
         {
-            for (int j = 9; j >= 1; j--)
-            {
-                // 활성화된 보드만.
-                if (c_board.V[i].H[j].block.BoardState && c_board.V[i].H[j].block.HereBlockObject != null)
-                {
-                    sum += ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
-                    sum += ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
-                }
-            }
-        }
-        // 바꾸기 가능
-        // 애니메이션 실행
-        if (sum > 0)
-        {
-            c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy);
-            c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy);
-        }
-        // 바꾸기 불가능
-        // 다시 되돌리기.
-        else
-        {
-            c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy);
-            c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy);
+            GameObject tempobj;
             tempobj = c_board.V[xLine].H[yLine].block.HereBlockObject;
             c_board.V[xLine].H[yLine].block.HereBlockObject = c_board.V[s_xLine].H[s_yLine].block.HereBlockObject;
             c_board.V[s_xLine].H[s_yLine].block.HereBlockObject = tempobj;
 
-            c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy, 0.1f);
-            c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy, 0.1f);
+            XY xy = new XY();
+            XY s_xy = new XY();
+            xy.X = xLine;
+            xy.Y = yLine;
+            s_xy.X = s_xLine;
+            s_xy.Y = s_yLine;
+            int sum = 0;
+            for (int i = 8; i >= 0; i--)
+            {
+                for (int j = 9; j >= 1; j--)
+                {
+                    // 활성화된 보드만.
+                    if (c_board.V[i].H[j].block.BoardState && c_board.V[i].H[j].block.HereBlockObject != null)
+                    {
+                        sum += ThreeMatch_DFS(i, j, 1, -1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
+                        sum += ThreeMatch_DFS(i, j, 1, 1, c_board.V[i].H[j].block.HereBlockObject.GetComponent<C_ImBlock>().Fruit_Type);
+                    }
+                }
+            }
+            // 바꾸기 가능
+            // 애니메이션 실행
+            if (sum > 0)
+            {
+                c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy);
+                c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy);
+                ChangeLogicTimer(0.1f);
+                Game_Logic_State = 0;
+            }
+            // 바꾸기 불가능
+            // 다시 되돌리기.
+            else
+            {
+                c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy);
+                c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy);
+                tempobj = c_board.V[xLine].H[yLine].block.HereBlockObject;
+                c_board.V[xLine].H[yLine].block.HereBlockObject = c_board.V[s_xLine].H[s_yLine].block.HereBlockObject;
+                c_board.V[s_xLine].H[s_yLine].block.HereBlockObject = tempobj;
 
+                c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy, 0.1f);
+                c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy, 0.1f);
+                ChangeLogicTimer(0.2f);
+                Game_Logic_State = 2;
+            }
+
+            // 스왑이 끝나면 
+            Next_Logic_Ready = false;
         }
+        
     }
+    
 
+    public void ChangeLogicTimer(float changeNum)
+    {
+        fLogic_Timer = changeNum + 0.05f;
+    }
 }
 
 /*

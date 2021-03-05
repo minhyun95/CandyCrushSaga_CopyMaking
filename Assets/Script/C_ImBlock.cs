@@ -46,11 +46,11 @@ public class C_ImBlock : MonoBehaviour
         Vector3 startPos = transform.position;
         yield return new WaitForSeconds(DelayTime);
 
-        C_GameManager.Instance.ChangeLogicTimer(0.1f);
+        C_GameManager.Instance.ChangeLogicTimer(0.05f);
         // 0.1초간 목적지로 이동
         for (int i = 0; i < 16; i++)
         {
-            yield return new WaitForSeconds(0.1f / 16f);
+            yield return new WaitForSeconds(0.075f / 16f);
             transform.position = Vector3.Lerp(startPos, C_GameManager.Instance.c_board.V[x].H[y].block.Block_Transform.position, i / 16f);
         }
         Check_Now_Position(x, y);

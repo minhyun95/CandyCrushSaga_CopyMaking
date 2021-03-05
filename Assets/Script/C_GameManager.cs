@@ -295,7 +295,7 @@ public class C_GameManager : Singleton<C_GameManager>
         int[] MakeCount = new int[9];
 
         int d = 0;
-        while(d < 10)
+        while(d < 15)
         {
             d++;
             for (int i = 0; i < 9; i++)
@@ -363,7 +363,7 @@ public class C_GameManager : Singleton<C_GameManager>
                             xy.X = i;
                             xy.Y = j + 1;
                             Candy_Init(obj);
-                            obj.GetComponent<C_ImBlock>().MoveEnQueue(xy, MakeCount[i] / 5f);
+                            obj.GetComponent<C_ImBlock>().MoveEnQueue(xy, MakeCount[i] / 10f);
                             continue;
                         }
                     }
@@ -389,6 +389,7 @@ public class C_GameManager : Singleton<C_GameManager>
         {
             for (int j = 1; j < 10; j++)
             {
+                BoomType[i, j] = 0;
                 isMatched[i, j] = 0;
             }
         }
@@ -589,7 +590,7 @@ public class C_GameManager : Singleton<C_GameManager>
 
     public void ChangeLogicTimer(float changeNum)
     {
-        fLogic_Timer = changeNum + 0.05f;
+        fLogic_Timer = changeNum + 0.15f;
     }
 }
 

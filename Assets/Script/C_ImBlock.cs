@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Values;
 public class C_ImBlock : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class C_ImBlock : MonoBehaviour
 
     private void Start()
     {
-
     }
     private void OnDisable()
     {
@@ -77,5 +77,14 @@ public class C_ImBlock : MonoBehaviour
         {
             Queue_On = false;
         }
+    }
+
+    public void SubscribeEvent()
+    {
+        EventManager.On("MatchComplete",ResetColor);
+    }
+    public void ResetColor(GameObject obj = null)
+    {     
+        GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f); 
     }
 }

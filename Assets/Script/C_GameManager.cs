@@ -124,6 +124,7 @@ public class C_GameManager : Singleton<C_GameManager>
                 else
                 {
                     c_board.V[i].H[j].block.BoardState = true;
+                    
                 }
             }
         }
@@ -170,6 +171,9 @@ public class C_GameManager : Singleton<C_GameManager>
                     c_board.V[i].H[j].block.Here_ImBlock = block.GetComponent<C_ImBlock>();
                     block.transform.position = c_board.V[i].H[j].block.Block_Transform.GetComponent<RectTransform>().position;
                     block.GetComponent<C_ImBlock>().Check_Now_Position(i, j);
+
+                    //block.GetComponent<C_ImBlock>().SubscribeEvent(); // MatchComplete 메시지에 대해서 구독, 이후 맵을 생성할때 닫혀있는 맵은 이 함수를 호출하면x, 
+                    //하게 되면 매치이벤트 발생시 검정색이 흰색으로 돌아올것임.
                 }
             }
         }
@@ -563,10 +567,12 @@ public class C_GameManager : Singleton<C_GameManager>
             // 애니메이션 실행
             if (sum > 0)
             {
+                EventManager.Emit("MatchComplete");
                 c_board.V[xLine].H[yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(xy);
                 c_board.V[s_xLine].H[s_yLine].block.HereBlockObject.GetComponent<C_ImBlock>().MoveEnQueue(s_xy);
                 ChangeLogicTimer(0.1f);
                 Game_Logic_State = 0;
+                
             }
             // 바꾸기 불가능
             // 다시 되돌리기.

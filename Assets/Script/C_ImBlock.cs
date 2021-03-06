@@ -15,6 +15,13 @@ public class C_ImBlock : MonoBehaviour
 
     private void Start()
     {
+
+    }
+    private void OnDisable()
+    {
+        Q_XY.Clear();
+        Q_Time.Clear();
+        Queue_On = false;
     }
     public void Check_Now_Position(int _x, int _y)
     {

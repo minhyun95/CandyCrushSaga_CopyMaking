@@ -155,6 +155,8 @@ public class C_GameManager : Singleton<C_GameManager>
             Candy_Init(NewBlock);
             NewBlock.SetActive(false);
             SleepBlocks.Enqueue(NewBlock);
+            NewBlock.GetComponent<C_ImBlock>().SubscribeEvent(); // MatchComplete 메시지에 대해서 구독, 이후 맵을 생성할때 닫혀있는 맵은 이 함수를 호출하면x, 
+            //하게 되면 매치이벤트 발생시 검정색이 흰색으로 돌아올것임.
         }
         for (int i = 0; i < 9; i++)
         {
@@ -172,8 +174,7 @@ public class C_GameManager : Singleton<C_GameManager>
                     block.transform.position = c_board.V[i].H[j].block.Block_Transform.GetComponent<RectTransform>().position;
                     block.GetComponent<C_ImBlock>().Check_Now_Position(i, j);
 
-                    //block.GetComponent<C_ImBlock>().SubscribeEvent(); // MatchComplete 메시지에 대해서 구독, 이후 맵을 생성할때 닫혀있는 맵은 이 함수를 호출하면x, 
-                    //하게 되면 매치이벤트 발생시 검정색이 흰색으로 돌아올것임.
+                    
                 }
             }
         }

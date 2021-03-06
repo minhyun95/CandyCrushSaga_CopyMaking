@@ -9,7 +9,12 @@ public class JoyStick : MonoBehaviour
     public bool Clicked = false;
     public Vector3 joyVec;
     private static JoyStick instance;
+    C_GameManager gm = C_GameManager.Instance;
 
+    // 조이스틱 CS 기능
+    // 각 과일은 조이스틱 함수를 가지고있고
+    // 클릭하면 PointDown, OnMouseDrag 함수가 실행됨.
+    // 클릭한 상태로 일정거리 이상 움직이면 GameManager에서 Swap
     private void Start()
     {
         c_MyBlock = GetComponent<C_ImBlock>();
@@ -35,7 +40,7 @@ public class JoyStick : MonoBehaviour
                 {
                     if (C_GameManager.Instance.c_board.V[c_MyBlock.X + 1].H[c_MyBlock.Y].block.BoardState && C_GameManager.Instance.c_board.V[c_MyBlock.X + 1].H[c_MyBlock.Y].block.HereBlockObject != null)
                     {
-                        C_GameManager.Instance.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X + 1, c_MyBlock.Y);
+                        gm.swap_Board.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X + 1, c_MyBlock.Y);
                         Clicked = false;
                     }
                 }
@@ -44,7 +49,7 @@ public class JoyStick : MonoBehaviour
                 {
                     if (C_GameManager.Instance.c_board.V[c_MyBlock.X - 1].H[c_MyBlock.Y].block.BoardState && C_GameManager.Instance.c_board.V[c_MyBlock.X - 1].H[c_MyBlock.Y].block.HereBlockObject != null)
                     {
-                        C_GameManager.Instance.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X - 1, c_MyBlock.Y);
+                        gm.swap_Board.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X - 1, c_MyBlock.Y);
                         Clicked = false;
                     }
                 }
@@ -53,7 +58,7 @@ public class JoyStick : MonoBehaviour
                 {
                     if (C_GameManager.Instance.c_board.V[c_MyBlock.X].H[c_MyBlock.Y - 1].block.BoardState && C_GameManager.Instance.c_board.V[c_MyBlock.X].H[c_MyBlock.Y - 1].block.HereBlockObject != null)
                     {
-                        C_GameManager.Instance.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X, c_MyBlock.Y - 1);
+                        gm.swap_Board.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X, c_MyBlock.Y - 1);
                         Clicked = false;
                     }
                 }
@@ -62,7 +67,7 @@ public class JoyStick : MonoBehaviour
                 {
                     if (C_GameManager.Instance.c_board.V[c_MyBlock.X].H[c_MyBlock.Y + 1].block.BoardState && C_GameManager.Instance.c_board.V[c_MyBlock.X].H[c_MyBlock.Y + 1].block.HereBlockObject != null)
                     {
-                        C_GameManager.Instance.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X, c_MyBlock.Y + 1);
+                        gm.swap_Board.Swap(c_MyBlock.X, c_MyBlock.Y, c_MyBlock.X, c_MyBlock.Y + 1);
                         Clicked = false;
                     }
                 }

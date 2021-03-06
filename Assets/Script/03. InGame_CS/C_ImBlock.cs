@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Values;
+using Functions;
 public class C_ImBlock : MonoBehaviour
 {
     public int Fruit_Type;

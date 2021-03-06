@@ -294,6 +294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_atlas: {fileID: 0}
   Block_Pool_Transform: {fileID: 1320506847}
+  Game_Logic_State: 0
+  Next_Logic_Ready: 0
+  fLogic_Timer: -1
   Board_Pool_Transform: {fileID: 2132640547}
   c_board:
     V:
@@ -304,60 +307,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 626184093}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -365,60 +378,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -426,60 +449,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -487,60 +520,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -548,60 +591,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -609,60 +662,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -670,60 +733,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -731,60 +804,70 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
     - H:
       - block:
           HereBlockObject: {fileID: 0}
@@ -792,60 +875,74 @@ MonoBehaviour:
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
       - block:
           HereBlockObject: {fileID: 0}
           Here_ImBlock: {fileID: 0}
           BlockType: 15
           BlockSprite: {fileID: 0}
           Block_Transform: {fileID: 0}
+          BoardState: 0
+  values:
+    iPoint: 0
+    iBrokePoint: 30
+    BoardOffColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &27995462
 Transform:
   m_ObjectHideFlags: 0
@@ -2459,7 +2556,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 274793894}
-  - component: {fileID: 274793893}
   m_Layer: 0
   m_Name: Header
   m_TagString: Header
@@ -2467,22 +2563,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &274793893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274793892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d725da098d5df4aab89d9627319182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointText: {fileID: 736701373}
-  iPoint: 0
-  iBrokePoint: 30
-  BoardOffColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!4 &274793894
 Transform:
   m_ObjectHideFlags: 0
@@ -2495,7 +2575,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &282139681
 PrefabInstance:
@@ -3567,84 +3647,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1115145437}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &358687257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 358687258}
-  - component: {fileID: 358687260}
-  - component: {fileID: 358687259}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &358687258
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358687257}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 428128633}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &358687259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358687257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\uB9E4\uCE58"
---- !u!222 &358687260
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 358687257}
-  m_CullTransparentMesh: 0
 --- !u!1001 &369728149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4301,136 +4303,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287a3d8d4a320b343bd0e10924dd71e3, type: 3}
---- !u!1 &428128632
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 428128633}
-  - component: {fileID: 428128636}
-  - component: {fileID: 428128635}
-  - component: {fileID: 428128634}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &428128633
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428128632}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 358687258}
-  m_Father: {fileID: 1083882891}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 649.68}
-  m_SizeDelta: {x: 153.97266, y: 111.36841}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &428128634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428128632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 428128635}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 27995461}
-        m_MethodName: Match3_Algorithm
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &428128635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428128632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &428128636
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428128632}
-  m_CullTransparentMesh: 0
 --- !u!1001 &435755154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6994,84 +6866,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287a3d8d4a320b343bd0e10924dd71e3, type: 3}
---- !u!1 &881985212
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 881985213}
-  - component: {fileID: 881985215}
-  - component: {fileID: 881985214}
-  m_Layer: 5
-  m_Name: Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &881985213
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881985212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1360629120}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &881985214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881985212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 5
-    m_MaxSize: 50
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\uCC44\uC6B0\uAE30"
---- !u!222 &881985215
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881985212}
-  m_CullTransparentMesh: 0
 --- !u!224 &887270149 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1866664638287066387, guid: 287a3d8d4a320b343bd0e10924dd71e3,
@@ -8205,8 +7999,6 @@ RectTransform:
   - {fileID: 1320506847}
   - {fileID: 1960533783}
   - {fileID: 1010066102}
-  - {fileID: 428128633}
-  - {fileID: 1360629120}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10384,136 +10176,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287a3d8d4a320b343bd0e10924dd71e3, type: 3}
---- !u!1 &1360629119
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1360629120}
-  - component: {fileID: 1360629123}
-  - component: {fileID: 1360629122}
-  - component: {fileID: 1360629121}
-  m_Layer: 5
-  m_Name: Button (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1360629120
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360629119}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 881985213}
-  m_Father: {fileID: 1083882891}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 226, y: 649.68}
-  m_SizeDelta: {x: 153.97266, y: 111.36841}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1360629121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360629119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1360629122}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 27995461}
-        m_MethodName: Fill_Empty_Space
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1360629122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360629119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1360629123
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360629119}
-  m_CullTransparentMesh: 0
 --- !u!224 &1361495319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1866664638287066387, guid: 287a3d8d4a320b343bd0e10924dd71e3,
@@ -10526,6 +10188,50 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1058749200}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389567349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1389567351}
+  - component: {fileID: 1389567350}
+  m_Layer: 0
+  m_Name: UI_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1389567350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389567349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35876c39d616fff4daa3dd68f6215670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PointText: {fileID: 736701373}
+--- !u!4 &1389567351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389567349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 449.16132, y: 1098.5887, z: -97.954994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1399536322 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1866664638287066387, guid: 287a3d8d4a320b343bd0e10924dd71e3,

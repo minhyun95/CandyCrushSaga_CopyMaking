@@ -69,9 +69,8 @@ namespace Functions
     Unity 인스펙터 창에서 2중배열을 볼 수 없으므로
     Ver(가로) 9개, Hor(세로) 10개 가지고있는 Class 배열을 만들고
     Hor Class 내부에 Block Class를 넣었다.
-    9x10의 Block이 생긴셈.
+    9x10의 Block 생성.
 */
-
 public class XY
 {
     public int X = 0;

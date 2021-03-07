@@ -50,7 +50,7 @@ namespace Functions
                 {
                     gm.Get_ImBlock(xLine, yLine).MoveEnQueue(xy);
                     gm.Get_ImBlock(s_xLine, s_yLine).MoveEnQueue(s_xy);
-                    tempobj = gm.GetBlockObject(s_xLine, s_yLine);
+                    tempobj = gm.GetBlockObject(xLine, yLine);
                     gm.c_board.V[xLine].H[yLine].block.HereBlockObject = gm.GetBlockObject(s_xLine, s_yLine);
                     gm.c_board.V[s_xLine].H[s_yLine].block.HereBlockObject = tempobj;
                     gm.Get_ImBlock(xLine, yLine).MoveEnQueue(xy, 0.1f);

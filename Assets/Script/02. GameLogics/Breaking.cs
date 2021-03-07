@@ -24,17 +24,22 @@ namespace Functions
             {
                 if (gm.GetBlockObject(i, j) != null)
                 {
-                    if (gm.Get_ImBlock(i,j).VerticalBoom)
+                    if (gm.Get_ImBlock(i,j).VerticalBoom == 1)
                     {
-                        gm.Get_ImBlock(i, j).VerticalBoom = false;
+                        gm.Get_ImBlock(i, j).VerticalBoom = 0;
                         Debug.Log($"VerticalExplode [{i},{j}]");
-                        Vertical_Explode(i, j);
+                        Line_Explode(i, j, (int)e_Boom_Number_Type.VerticalBoom);
                     }
-                    else if (gm.Get_ImBlock(i, j).HorizontalBoom)
+                    else if (gm.Get_ImBlock(i, j).HorizontalBoom == 1)
                     {
-                        gm.Get_ImBlock(i, j).HorizontalBoom = false;
+                        gm.Get_ImBlock(i, j).HorizontalBoom = 0;
                         Debug.Log($"HorizontalExplode [{i},{j}]");
-                        Horizontal_Explode(i, j);
+                        Line_Explode(i, j, (int)e_Boom_Number_Type.HorizontalBoom);
+                    }
+                    else if(gm.Get_ImBlock(i,j).BagBoom == 1)
+                    {
+                        gm.Get_ImBlock(i, j).BagBoom = 0;
+                        Bag_Explode(i, j, 1);
                     }
                     else
                     {
@@ -48,24 +53,60 @@ namespace Functions
             }
         }
 
-        // 가로줄 파괴 폭탄
-        void Vertical_Explode(int xline, int yline)
+        // 라인 파괴 폭탄
+        public void Line_Explode(int xline, int yline, int WhatLine)
         {
-            for (int x = 0; x < 9; x++)
+            if(WhatLine == (int)e_Boom_Number_Type.VerticalBoom)
             {
-                gm.values.iPoint += 100;
-                Break(x, yline);
+                for (int x = 0; x < 9; x++)
+                {
+                    gm.values.iPoint += 100;
+                    Break(x, yline);
+                }
+            }
+            else if (WhatLine == (int)e_Boom_Number_Type.HorizontalBoom)
+            {
+                for (int y = 1; y < 10; y++)
+                {
+                    gm.values.iPoint += 100;
+                    Break(xline, y);
+                }
             }
         }
 
-        // 세로줄 파괴 폭탄
-        void Horizontal_Explode(int xline, int yline)
+        // 8방향 파괴폭탄 (side_explode_range를 조정하면 범위를 늘릴 수 있다.)
+        public void Bag_Explode(int xline, int yline, int side_explode_range = 1)
         {
-            for (int y = 1; y < 10; y++)
+
+            for (int i = 0; i < side_explode_range * 2 + 1; i++)
             {
-                gm.values.iPoint += 100;
-                Break(xline, y);
+                for (int j = 0; j < side_explode_range * 2 + 1; j++)
+                {
+                    Debug.Log("8방향 폭탄");
+                    if (xline - side_explode_range + i < 0 || xline - side_explode_range + i > 8 || yline - side_explode_range + j < 1 || yline - side_explode_range + j > 9)
+                        continue;
+                    Debug.Log($"8방향 폭탄 터짐 [{xline - side_explode_range + i}][{yline - side_explode_range + j}]");
+                    Break(xline - side_explode_range + i, yline - side_explode_range + j);
+                }
             }
         }
+
+        // 한가지 색 파괴 폭탄.
+        public void Color_Explode(int get_fruit_Type)
+        {
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 10; y++)
+                {
+                    if (gm.GetBlockObject(x, y) != null && gm.Get_ImBlock(x, y).Fruit_Type % 5 == get_fruit_Type % 5)
+                    {
+                        Break(x, y);
+                        gm.values.iPoint += 80;
+                    }
+                }
+            }
+        }
+        
+
     }
 }

@@ -54,13 +54,21 @@ namespace Functions
         H_Orange,
         H_Yellow,
         H_Green,
+        
+        // BB : BagBoom
+        B_Blue,
+        B_Red,
+        B_Orange,
+        B_Yellow,
+        B_Green,
     }
 
     // 가로,세로 파괴일때 0,1로 구분해준다.
-    enum e_Boom_Number_Type
+    public enum e_Boom_Number_Type
     {
         VerticalBoom,
-        HorizontalBoom
+        HorizontalBoom,
+        BagBoom
     }
 
 }

@@ -19,6 +19,8 @@ namespace Functions
                 {
                     for (int k = 0; k < 4; ++k)
                     {
+                        if (gm.GetBlockObject(x, y) == null)
+                            continue;
                         int resultX = x + dx[k];
                         int resultY = y + dy[k];
                         // 우좌 상하 순으로 이동했을때의 경우에서 매치가 되는부분을 탐색 
@@ -52,13 +54,18 @@ namespace Functions
             {
                 for (int i = y - 1; i > 0; --i)
                 {
-                    if (gm.Get_ImBlock(x, i).Fruit_Type == iFruitType)
+                    // 여기 영완님에게 전달필요 혹시 전달못받고 영완님이 이거 발견하시면 아래 주석 참고해주세요!
+                    // gm.GetBlockObject(x, i) != null 이거 추가한 이유
+                    // 빈 (과일이 갈수없는 장소) 를 Get_ImBlock하려고하면 Object가 Null이라 NullReference에러가 나기때문에
+                    // 미리 그 블록오브젝트가 null인지 체크필요합니다
+                    // gm.GetBlockObject(x, i) != null 를 제거하고 Board_Setting에가서 테스트 용 보드 false를 해주시면 확인가능.
+                    if (gm.GetBlockObject(x, i) != null && gm.Get_ImBlock(x, i).Fruit_Type == iFruitType)
                         blockList.Add(gm.Get_ImBlock(x, i));
                     else break;
                 }
                 for (int i = y + 1; i <= 9; ++i)
                 {
-                    if (gm.Get_ImBlock(x, i).Fruit_Type == iFruitType)
+                    if (gm.GetBlockObject(x, i) != null && gm.Get_ImBlock(x, i).Fruit_Type == iFruitType)
                         blockList.Add(gm.Get_ImBlock(x, i));
                     else break;
                 }
@@ -67,13 +74,13 @@ namespace Functions
             {
                 for (int i = x - 1; i >= 0; --i)
                 {
-                    if (gm.Get_ImBlock(i, y).Fruit_Type == iFruitType)
+                    if (gm.GetBlockObject(i, y) != null && gm.Get_ImBlock(i, y).Fruit_Type == iFruitType)
                         blockList.Add(gm.Get_ImBlock(i, y));
                     else break;
                 }
                 for (int i = x + 1; i < 9; ++i)
                 {
-                    if (gm.Get_ImBlock(i, y).Fruit_Type == iFruitType)
+                    if (gm.GetBlockObject(i, y) != null && gm.Get_ImBlock(i, y).Fruit_Type == iFruitType)
                         blockList.Add(gm.Get_ImBlock(i, y));
                     else break;
                 }
@@ -89,6 +96,8 @@ namespace Functions
             //각 방향으로 이동하면서 같은 블럭체크
             while (x > 0 && x < 10 && y > 0 && y < 10)
             {
+                if (gm.GetBlockObject(x, y) == null)
+                    break;
                 if (gm.Get_ImBlock(x, y).Fruit_Type != iFruitType)
                     break;
                 blockList.Add(gm.Get_ImBlock(x, y));

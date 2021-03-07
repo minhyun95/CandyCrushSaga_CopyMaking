@@ -15,7 +15,10 @@ namespace Functions
         9x10을 돌려 isMatched가 0이상인 좌표에 있는 Fruit를 Breaking한다.
         */
         int[,] isMatched = new int[9, 10];
+        int[,] BagBoom_Check = new int[9, 10];
         int[,] BoomType = new int[9, 10];
+
+
         [ContextMenu("매치")]
         public int Match3_Algorithm()
         {
@@ -26,6 +29,7 @@ namespace Functions
                 {
                     BoomType[i, j] = 0;
                     isMatched[i, j] = 0;
+                    BagBoom_Check[i, j] = 0;
                 }
             }
             int Sum = 0;
@@ -37,26 +41,26 @@ namespace Functions
             {
                 for (int j = 1; j < 10; j++)
                 {
-                    if (isMatched[i, j] > 0)
+                    if (isMatched[i, j] > 0 && gm.GetBlockObject(i, j))
                     {
                         //Debug.Log($"브레이킹[{i},{j}] 발동 + Matched : {isMatched[i,j]}");
-                        if (isMatched[i, j] == 4)
+
+                        if (BagBoom_Check[i, j] == 2)
                         {
-                            Debug.Log($"4매치 [{i},{j}] 발동");
-                            if (BoomType[i, j] == (int)Functions.e_Boom_Number_Type.VerticalBoom)
-                            {
-                                gm.Get_ImBlock(i, j).VerticalBoom = true;
-                                gm.candy_Init.Init(gm.GetBlockObject(i, j), gm.Get_ImBlock(i, j).Fruit_Type + 5);
-                            }
-                            else if (BoomType[i, j] == (int)Functions.e_Boom_Number_Type.HorizontalBoom)
-                            {
-                                gm.Get_ImBlock(i, j).HorizontalBoom = true;
-                                gm.candy_Init.Init(gm.GetBlockObject(i, j), gm.Get_ImBlock(i, j).Fruit_Type + 10);
-                            }
+                            gm.candy_Init.Init(gm.GetBlockObject(i, j), gm.Get_ImBlock(i, j).Fruit_Type + 15);
+                        }
+                        else if (isMatched[i, j] == 4 && BoomType[i, j] == (int)Functions.e_Boom_Number_Type.VerticalBoom)
+                        {
+                            gm.candy_Init.Init(gm.GetBlockObject(i, j), gm.Get_ImBlock(i, j).Fruit_Type + 5);
+                        }
+                        else if (isMatched[i, j] == 4 && BoomType[i, j] == (int)Functions.e_Boom_Number_Type.HorizontalBoom)
+                        {
+                            gm.candy_Init.Init(gm.GetBlockObject(i, j), gm.Get_ImBlock(i, j).Fruit_Type + 10);
                         }
                         else if (isMatched[i, j] == 5)
                         {
-
+                            // 컬러밤 생성
+                            gm.candy_Init.Init(gm.GetBlockObject(i, j), 100);
                         }
                         else
                         {
@@ -92,7 +96,7 @@ namespace Functions
         */
         public int ThreeMatch_DFS(int x, int y, int stack, int dir, int startFruit)
         {
-            int num = 0;
+            int maxstack = 0;
             // 범위를 벗어나면 return 
             // 보드가 닫혀있다면 return
             if (y < 1 || x < 0 || gm.GetBoardState(x, y) == false)
@@ -100,47 +104,59 @@ namespace Functions
             else if (gm.GetBlockObject(x, y) == null)
                 return 0;
             // 다른과일이라면 return 
-            else if ((gm.Get_ImBlock(x, y).Fruit_Type % 5) != (startFruit % 5))
+            else if ((gm.Get_ImBlock(x, y).Fruit_Type % 5) != (startFruit % 5) || gm.Get_ImBlock(x, y).Fruit_Type == 100)
                 return 0;
 
 
             // 왼쪽 방향 체크
             else if (dir == -1)
             {
-                num = (int)Mathf.Max(stack, ThreeMatch_DFS(x - 1, y, stack + 1, dir, startFruit));
+                maxstack = (int)Mathf.Max(stack, ThreeMatch_DFS(x - 1, y, stack + 1, dir, startFruit));
             }
             // 위쪽 방향 체크
             else if (dir == 1)
             {
-                num = (int)Mathf.Max(stack, ThreeMatch_DFS(x, y - 1, stack + 1, dir, startFruit));
+                maxstack = (int)Mathf.Max(stack, ThreeMatch_DFS(x, y - 1, stack + 1, dir, startFruit));
             }
-            if (num >= 3)
+            if (maxstack >= 3)
             {
                 if (isMatched[x, y] < stack)
                     isMatched[x, y] = stack;
                 if (dir == -1)
                 {
-                    if (stack == 4)
+                    if (stack == 5 && maxstack == 5)
+                    {
+                        gm.Get_ImBlock(x, y).ColorBoom = 1;
+                    }
+                    else if (stack == 4 && maxstack == 4)
                     {
                         BoomType[x, y] = (int)Functions.e_Boom_Number_Type.HorizontalBoom;
                     }
-                    else if (stack == 5)
+                    else if (maxstack == 3)
                     {
-
+                        Debug.Log("여기1");
+                        if (BagBoom_Check[x, y] < 2)
+                            BagBoom_Check[x, y] += 1;
                     }
                 }
                 if (dir == 1)
                 {
-                    if (stack == 4)
+                    if (stack == 5 && maxstack == 5)
+                    {
+                        gm.Get_ImBlock(x, y).ColorBoom = 1;
+                    }
+                    else if (stack == 4 && maxstack == 4)
                     {
                         BoomType[x, y] = (int)Functions.e_Boom_Number_Type.VerticalBoom;
                     }
-                    else if (stack == 5)
+                    else if (maxstack == 3)
                     {
-
+                        Debug.Log("여기2");
+                        if (BagBoom_Check[x, y] < 2)
+                            BagBoom_Check[x, y] += 1;
                     }
                 }
-                return num;
+                return maxstack;
             }
             return 0;
         }

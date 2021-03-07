@@ -9,7 +9,7 @@ public class JoyStick : MonoBehaviour
     public bool Clicked = false;
     public Vector3 joyVec;
     private static JoyStick instance;
-    C_GameManager gm = C_GameManager.Instance;
+    C_GameManager gm;
 
     // 조이스틱 CS 기능
     // 각 과일은 조이스틱 함수를 가지고있고
@@ -17,6 +17,7 @@ public class JoyStick : MonoBehaviour
     // 클릭한 상태로 일정거리 이상 움직이면 GameManager에서 Swap
     private void Start()
     {
+        gm = C_GameManager.Instance;
         c_MyBlock = GetComponent<C_ImBlock>();
     }
     public void PointDown()

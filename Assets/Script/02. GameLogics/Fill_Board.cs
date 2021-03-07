@@ -52,7 +52,7 @@ namespace Functions
                                     }
                                 }
                                 // 오른쪽 하단 체크
-                                if (i == 0)
+                                else if (i < 8)
                                 {
                                     // 현재 칸의 오른쪽 하단 칸이 비었고, 보드가 true일때, 현재칸의 오른쪽 칸이 false일때
                                     if (gm.GetBoardState(i + 1, j + 1) && gm.GetBlockObject(i + 1, j + 1) == null && gm.GetBoardState(i + 1, j) == false)

@@ -30,9 +30,9 @@ namespace Functions
             }
 
             // 테스트용 보드 false
-            gm.c_board.V[4].H[4].block.BoardState = true;
-            gm.c_board.V[1].H[5].block.BoardState = true;
-            gm.c_board.V[7].H[2].block.BoardState = true;
+            gm.c_board.V[3].H[3].block.BoardState = false;
+            gm.c_board.V[4].H[4].block.BoardState = false;
+            gm.c_board.V[7].H[6].block.BoardState = false;
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 10; j++)

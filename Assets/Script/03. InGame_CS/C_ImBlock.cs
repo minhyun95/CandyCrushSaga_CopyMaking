@@ -7,9 +7,12 @@ public class C_ImBlock : MonoBehaviour
 {
     public int Fruit_Type;
     public int X, Y;
-    public bool VerticalBoom;
-    public bool HorizontalBoom;
-    public bool ColorBoom;
+
+    // 0이면 false 1이면 true
+    public int VerticalBoom;
+    public int HorizontalBoom;
+    public int ColorBoom;
+    public int BagBoom;  // 3x3 범위를 터트리는 캔디
     Queue<XY> Q_XY = new Queue<XY>();
     Queue<float> Q_Time = new Queue<float>();
     bool Queue_On = false;

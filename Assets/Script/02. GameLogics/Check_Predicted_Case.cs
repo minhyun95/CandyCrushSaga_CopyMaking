@@ -26,6 +26,10 @@ namespace Functions
                         // 우좌 상하 순으로 이동했을때의 경우에서 매치가 되는부분을 탐색 
                         if (resultX < 0 || resultX >= 9 || resultY <= 0 || resultY >= 10) //넘어가는지
                             continue;
+                        if (gm.GetBlockObject(resultX, resultY) == null)
+                            continue;
+
+
                         CheckLine(resultX, resultY, k, gm.Get_ImBlock(x, y).Fruit_Type, ref checkList);
                         if (checkList.Count >= 2) //현 블럭을 제외
                         {
